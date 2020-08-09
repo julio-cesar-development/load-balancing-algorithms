@@ -3,7 +3,7 @@ static_resources:
   - address:
       socket_address:
         address: 0.0.0.0
-        port_value: 8080
+        port_value: 80
 
     filter_chains:
     - filters:
@@ -28,9 +28,9 @@ static_resources:
                     retry_on: "5xx"
                     num_retries: 10
                     per_try_timeout: 2s
-                    
+
           http_filters:
-          - name: envoy.router
+          - name: envoy.filters.http.router
 
   clusters:
     - name: "default"
@@ -39,9 +39,9 @@ static_resources:
       lb_policy: "LEAST_REQUEST"
       hosts:
         - socket_address:
-            address: app_v1
-            port_value: 8080
+            address: api_v1
+            port_value: 9000
         - socket_address:
-            address: app_v2
-            port_value: 8080
+            address: api_v2
+            port_value: 9000
 

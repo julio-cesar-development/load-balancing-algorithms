@@ -1,12 +1,12 @@
-version: "3.4"
+version: '3.4'
 
 services:
-  envoy:
-    image: envoyproxy/envoy:v1.14.1
+  haproxy:
+    image: haproxy:2.0
     ports:
       - 8000:80
     volumes:
-      - ./envoy.yaml:/etc/envoy/envoy.yaml
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
 
   api_v1:
     image: juliocesarmidia/http-simple-api:v1.0.0
