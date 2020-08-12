@@ -33,7 +33,7 @@ docker-compose up --force-recreate
 
 ```bash
 while true; do
-  curl http://localhost:8000/api/v1/
+  curl http://localhost:8000/
 done
 ```
 
